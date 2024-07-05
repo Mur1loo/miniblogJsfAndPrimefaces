@@ -13,10 +13,12 @@ public class Post implements Serializable {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String tittle;
 
     private String subTittle;
 
+    @Column(nullable = false)
     private String text;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -44,6 +46,10 @@ public class Post implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getTittle() {
